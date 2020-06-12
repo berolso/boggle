@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %}Boggle Game{% endblock %} {% block
+content %}
+<div>
+  <table>
+    <div>
+      <div>High Score: <span class="high"> {{ high_score }}</span></div>
+      <div>
+        Total games played alltime: <span class="rounds">{{games_played}}</span>
+      </div>
+      <br />
+      <div>Timer: <span class="clock"></span> seconds</div>
+      <div>Score: <span class="score">0</span></div>
+    </div>
+    <div class="message"><br /></div>
+    {% for row in session['board'] %}
+    <tr>
+      {% for letter in row %}
+      <td>
+        {{letter}}
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<form>
+  Guess:
+  <input type="text" name="input" id="input" />
+</form>
+{% endblock %}
